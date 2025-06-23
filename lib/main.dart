@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pr_1/componets/navigation_bar.dart';
+import 'package:pr_1/componets/profile_cart.dart';
+import 'package:pr_1/componets/project_cart.dart';
+import 'package:pr_1/componets/skillset.dart';
 
 
 void main ()=>runApp(MaterialApp(
@@ -27,27 +31,29 @@ class _MyAppState extends State<MyApp> {
                 constraints: BoxConstraints(
                   maxWidth: 1000
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: NavigationBar_template(constraints: constraint),
+              ),
+            ),
+          ),
+          body: Align(
+            alignment: Alignment.topCenter,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxWidth: 1000
+              ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Frist last",style: TextStyle(fontFamily: "Poppins",fontWeight: FontWeight.bold),),
-
-                    //show only when the screen size is not phone
-                    if(constraint.maxWidth > 600)
-                    Row(
-                      children: [
-                        Text("case study",style: TextStyle(fontFamily: "Poppins"),),
-                        SizedBox(width: 10,),
-                        ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
-                              padding: EdgeInsets.symmetric(vertical: 20,horizontal: 25)
-                            ),
-                            onPressed: (){}, child: Text("check out get in",style: TextStyle(color: Colors.white,fontFamily: "Poppins"),))
-                      ],
-                    )
-                    else
-                      IconButton(onPressed: (){}, icon: Icon(Icons.menu,color: Colors.black,)),
+                    ProfileCart(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                      child: Text("Projects",style: TextStyle(fontFamily: "Poppins",fontSize: 20,fontWeight: FontWeight.bold),),
+                    ),
+                    ProjectCart(),
+                    ProjectCart(),
+                    ProjectCart(),
+                    Skillset()
                   ],
                 ),
               ),
