@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pr_1/project_screen.dart';
 
 class ProjectCart extends StatelessWidget {
   const ProjectCart({super.key});
@@ -41,7 +42,11 @@ class ProjectCart extends StatelessWidget {
                               backgroundColor: Colors.black,
                               padding: EdgeInsets.symmetric(vertical: 20,horizontal: 25)
                           ),
-                          onPressed: (){}, child: Text("View",style: TextStyle(color: Colors.white,fontFamily: "Poppins"),))
+                          onPressed: (){
+                            Navigator.push(context,
+                            MaterialPageRoute(builder: (context)=>ProjectScreen())
+                            );
+                          }, child: Text("View",style: TextStyle(color: Colors.white,fontFamily: "Poppins"),))
                     ],
                   ),
                 ),
@@ -77,7 +82,12 @@ class ProjectCart extends StatelessWidget {
                             backgroundColor: Colors.black,
                             padding: EdgeInsets.symmetric(vertical: 20,horizontal: 25)
                         ),
-                        onPressed: (){}, child: Text("View",style: TextStyle(color: Colors.white,fontFamily: "Poppins"),))
+                        onPressed: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=>ProjectScreen())
+                          );
+
+                        }, child: Text("View",style: TextStyle(color: Colors.white,fontFamily: "Poppins"),))
                   ],
                 ),
               )

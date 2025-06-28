@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 
 void main ()=>runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
+  scrollBehavior:NoScrollbarScrollBehavior(),
   home: MyApp(),));
 
 class MyApp extends StatefulWidget {
@@ -109,5 +110,18 @@ class _MyAppState extends State<MyApp> {
         );
       }
     );
+  }
+}
+
+
+class NoScrollbarScrollBehavior extends ScrollBehavior {
+  @override
+  Widget buildScrollbar(BuildContext context, Widget child, ScrollableDetails details) {
+    return child; // Hides the scrollbar
+  }
+
+  @override
+  Widget buildOverscrollIndicator(BuildContext context, Widget child, ScrollableDetails details) {
+    return child; // Removes the overscroll glow
   }
 }
